@@ -50,7 +50,7 @@ function Home() {
             </div>
             <div className="right-elements">
                 <h1>Hot Searchs</h1>
-                <h2>{dataLocation[1].id}</h2> 
+                {/*<h2>{dataLocation[0].id}</h2>*/} 
                 <div className="hot-content">
                     <div className="hot-element">
                         <span>PHP</span>
