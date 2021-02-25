@@ -1,0 +1,16 @@
+.search-btn {
+    width: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #000080;
+    color: #FFFFFF;
+    border: none;
+    outline: none;
+    box-shadow: 0px 3px 6px rgba(52, 60, 88, 0.4);
+    border-radius: 8px;
+    padding: 10px 0;
+    cursor: pointer;
+    font-size: 16px;
+    font-family: "roboto";
+}
