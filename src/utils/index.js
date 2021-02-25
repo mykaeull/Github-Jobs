@@ -1,14 +1,15 @@
 import api from "../servidor"
 
 export async function GetPage() {
-    const response = await api.get('positions.json?page=1&search=code', { headers: true, mode: 'cors' })
+    const response = await api.get('positions.json?search=city')
         .then(res => {
             console.log("deu certo!")
             console.log(res.data)
+            return res.data
         })
         .catch(err => {
             console.log("deu errado!")
             console.log(err)
-            console.log(err.response)
         })
+    return response
 }

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react"
+import React, { useState, useEffect } from "react"
 import './styles.css'
 import Input from "../../components/Input"
 import Button from "../../components/Button"
@@ -9,9 +9,21 @@ import { GetPage } from "../../utils"
 
 function Home() {
 
+    const [dataLocation, setDataLocation] = useState([]);
+
     useEffect(() => {
-        GetPage();
+        const getData = async () => {
+            const response = await GetPage()
+            setDataLocation(response)
+        }
+        getData()
     }, [])
+
+    useEffect(() => {
+        console.log('-----------------')
+        console.log(dataLocation)
+        console.log('-----------------')
+    },[dataLocation])
 
     return (
         <div className="container-home">
@@ -38,6 +50,7 @@ function Home() {
             </div>
             <div className="right-elements">
                 <h1>Hot Searchs</h1>
+                <h2>{dataLocation[1].id}</h2> 
                 <div className="hot-content">
                     <div className="hot-element">
                         <span>PHP</span>
