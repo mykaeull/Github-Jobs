@@ -7,8 +7,20 @@ function Navbar() {
 
     const [menu, setMenu] = useState(true);
 
+    /*window.addEventListener('click', (e) => {
+        if ((e.target).id == "teste") {
+            setMenu(false);
+        } 
+    });
+
+    window.addEventListener('keyup', (e) => {
+        if (e.key === "Escape") {
+          setMenu(false);
+        }
+    })*/
+
     return (
-        <div className="header-container">
+        <div className="header-container" id="teste">
             {menu && menu? 
             <></>
             :

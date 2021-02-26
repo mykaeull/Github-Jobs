@@ -2,14 +2,14 @@ import React, { useState, useEffect } from "react"
 import { Link } from "react-router-dom"
 import './styles.css'
 
-function TableJobs({ dataLocation }) {
+function TableJobs({ dataLocation, dataLocationLength }) {
 
     const [teste, setTeste] = useState([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
 
     return (
         <div className="container-table">
             <div className="container-middle">
-                <span>Showing 1 - 10 of 18 jobs</span>
+                <span>Showing 1 - 10 of {dataLocationLength} jobs</span>
                 <div className="content-elements">
                     <div className="left-elements">
                         {teste.map((e) => (

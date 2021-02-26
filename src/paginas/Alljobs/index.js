@@ -7,6 +7,7 @@ import { GetPage } from "../../utils"
 function Alljobs() {
     
     const [dataLocation, setDataLocation] = useState([]);
+    const [dataLocationLength, setDataLocationLength] = useState(null)
 
     useEffect(() => {
         const getData = async () => {
@@ -22,14 +23,15 @@ function Alljobs() {
         console.log('==================')
         console.log(dataLocation)
         console.log('==================')
+        setDataLocationLength(dataLocation.length)
     }, [dataLocation])
 
     return (
         <div className="container-jobs">
             <HeaderJobs />
-            {dataLocation.length ? 
+            {dataLocation.length !== 0 ? 
             (
-                <TableJobs dataLocation={dataLocation} />
+                <TableJobs dataLocation={dataLocation} dataLocationLength={dataLocationLength} />
             )
             :
             <h1>Carregando...</h1>

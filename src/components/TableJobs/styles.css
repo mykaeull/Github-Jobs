@@ -40,8 +40,8 @@
 }
 .container-table .container-middle .content-elements .left-elements .item-table > a {
     text-decoration: none;
-    width: auto;
-    color: #000080;
+    color: #24292e;
+    font-weight: 600;
 }
 .container-table .container-middle .content-elements .left-elements .item-table > a:hover {
     text-decoration: underline;
@@ -53,7 +53,7 @@
 }
 .container-table .container-middle .content-elements .left-elements .item-table > a > span {
     font-size: 16px;
-    color: #1616c5;
+    color: #41484e;
 }
 .container-table .container-middle .content-elements .left-elements .item-table .time {
     margin-top: 5px;
@@ -63,7 +63,7 @@
 }
 .container-table .container-middle .content-elements .left-elements .item-table .time> span {
     font-size: 14px;
-    color: #363636;
+    color: #32CD32;
     font-weight: bold;
 }
 .container-table .container-middle .content-elements .left-elements .item-table .location {

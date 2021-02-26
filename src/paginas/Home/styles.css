@@ -12,7 +12,7 @@
     width: 370px;
 }
 .container-home .left-elements .icon-text {
-    color: #000080;
+    color: #24292e;
     display: flex;
     align-items: center;
     margin-bottom: 20px;
@@ -72,7 +72,7 @@
     flex-direction: column;
 }
 .container-home .right-elements > h1 {
-    color: #000080;
+    color: #24292e;
 }
 .container-home .right-elements .hot-content {
     display: flex;
