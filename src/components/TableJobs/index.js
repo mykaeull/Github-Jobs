@@ -4,33 +4,32 @@ import './styles.css'
 
 function TableJobs({ dataLocation, dataLocationLength }) {
 
-    const [teste, setTeste] = useState([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
+    
 
     return (
         <div className="container-table">
             <div className="container-middle">
+                {dataLocationLength > 10 ?
                 <span>Showing 1 - 10 of {dataLocationLength} jobs</span>
+                :
+                <span>Showing {dataLocationLength}</span>
+                }
                 <div className="content-elements">
                     <div className="left-elements">
-                        {teste.map((e) => (
+                        {dataLocation.slice(0, 9).map((e, i) => (
                         <div className="item-table">
                             <Link to="/positions" >
-                                <h3>{dataLocation[e].title}</h3>
+                                <h3>{dataLocation[i].title}</h3>
                             </Link>
-                            <Link to="positions" >
-                                <span>{dataLocation[e].company}</span>
-                            </Link>
+                            <span>{dataLocation[i].company}</span>
                             <div className="time">
-                                Time: <span> {dataLocation[e].type}</span>
+                                Time: <span> {dataLocation[i].type}</span>
                             </div>
                             <div className="location">
-                                <span>Location: {dataLocation[e].location}</span>
+                                <span>Location: {dataLocation[i].location}</span>
                             </div>
                         </div>
                         ))}
-                    </div>
-                    <div className="right-elements">
-                        oi
                     </div>
                 </div>
             </div>

@@ -4,5 +4,12 @@
     position: absolute;
     left: 0;
     /*bottom: 0;*/
-    background-color: black;
+    background-color: #24292e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.footer > h5 {
+    color: #FFFFFF;
+    font-weight: 500;
 }

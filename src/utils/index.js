@@ -1,7 +1,8 @@
 import api from "../servidor"
 
-export async function GetPage() {
-    const response = await api.get('positions.json?search=city')
+export async function GetPage(desc= '', loc= '', fullTime= false) {
+    let time = fullTime? '&full_time=true' : ''
+    const response = await api.get(`positions.json?description=${desc}${time}&location=${loc}`)
         .then(res => {
             console.log("deu certo!")
             console.log(res.data)

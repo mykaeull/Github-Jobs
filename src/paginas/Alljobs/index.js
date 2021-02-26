@@ -4,14 +4,14 @@ import HeaderJobs from "../../components/HeaderJobs"
 import TableJobs from "../../components/TableJobs"
 import { GetPage } from "../../utils"
 
-function Alljobs() {
+function Alljobs({desc = '', loc = '', fullTime = false}) {
     
     const [dataLocation, setDataLocation] = useState([]);
     const [dataLocationLength, setDataLocationLength] = useState(null)
 
     useEffect(() => {
         const getData = async () => {
-            const response = await GetPage()
+            const response = await GetPage(desc, loc, fullTime)
             setDataLocation(response)
         }
         getData()
