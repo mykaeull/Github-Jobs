@@ -5,7 +5,7 @@ import { GiEarthAmerica } from "react-icons/gi"
 import Input from "../Input"
 import Button from "../Button"
 
-function HeaderJobs({fullTime = false, setDesc, setLoc, setFullTime, click, setClick, loc, desc}) {
+function HeaderJobs({fullTime = false, setDesc, setLoc, setFullTime, clickSearch, setClickSearch, loc, desc, setPage}) {
     
     return (
         <div className="header-jobs">
@@ -29,7 +29,8 @@ function HeaderJobs({fullTime = false, setDesc, setLoc, setFullTime, click, setC
                     }} />
                 </div>
                 <Button onClick={(e) => {
-                    setClick(!click)
+                    setPage(1)
+                    setClickSearch(!clickSearch)
                 }} />
                 <div className="check-content" >
                     <input type="checkbox" onClick={(e) => {

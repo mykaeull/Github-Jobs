@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react"
 import { Link } from "react-router-dom"
 import './styles.css'
 
-function TableJobs({ dataLocation, dataLocationLength, page, setPage, click, setClick }) {
+function TableJobs({ dataLocation, dataLocationLength, page, setPage, clickShowMore, setClickShowMore }) {
 
     return (
         <div className="container-table">
@@ -32,7 +32,7 @@ function TableJobs({ dataLocation, dataLocationLength, page, setPage, click, set
             </div>
             <div className="btn" onClick={(e) => {
                 setPage(page+1);
-                setClick(!click)
+                setClickShowMore(!clickShowMore)
             }}>
                 <h4>show more</h4>
             </div>

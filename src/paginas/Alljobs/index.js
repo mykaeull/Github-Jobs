@@ -11,7 +11,8 @@ function Alljobs() {
     const [desc, setDesc] = useState('')
     const [loc, setLoc] = useState('')
     const [fullTime, setFullTime] = useState(false)
-    const [click, setClick] = useState(false)
+    const [clickSearch, setClickSearch] = useState(false)
+    const [clickShowMore, setClickShowMore] = useState(false)
     const [loading, setLoading] = useState(false)
     const [page, setPage] = useState(1)
 
@@ -23,7 +24,17 @@ function Alljobs() {
             setLoading(false)
         }
         getData()
-    }, [click])
+    }, [clickSearch])
+
+    useEffect(() => {
+        setLoading(true)
+        const getData = async () => {
+            const response = await GetPage(desc, loc, fullTime, page)
+            setDataLocation(response)
+            setLoading(false)
+        }
+        getData()
+    }, [clickShowMore])
 
     useEffect(() => {
         console.log('==================')
@@ -31,7 +42,7 @@ function Alljobs() {
         console.log('==================')
         setDataLocationLength(dataLocation.length)
         //dataLocation.length == 0 ? setTeste(true) : setTeste(false)
-        console.log("AQUII");
+        //console.log("AQUII");
         //console.log(teste);
     }, [dataLocation])
 
@@ -39,14 +50,14 @@ function Alljobs() {
         
         setDataLocationLength(dataLocation.length)
         //setTeste(!teste)
-    }, [click])*/
+    }, [ClickSearch])*/
 
     return (
         <div className="container-jobs">
-            <HeaderJobs loc={loc} desc={desc} fullTime={fullTime} setDesc={setDesc} setLoc={setLoc} setFullTime={setFullTime} click={click} setClick={setClick} />
+            <HeaderJobs setPage={setPage} loc={loc} desc={desc} fullTime={fullTime} setDesc={setDesc} setLoc={setLoc} setFullTime={setFullTime} clickSearch={clickSearch} setClickSearch={setClickSearch} />
             {dataLocation.length !== 0 ? 
             (
-                <TableJobs click={click} setClick={setClick} page={page} setPage={setPage} dataLocation={dataLocation} dataLocationLength={dataLocationLength} />
+                <TableJobs clickShowMore={clickShowMore} setClickShowMore={setClickShowMore} page={page} setPage={setPage} dataLocation={dataLocation} dataLocationLength={dataLocationLength} />
             )
             :
             loading ?
