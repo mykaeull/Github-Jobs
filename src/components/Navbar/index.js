@@ -30,7 +30,7 @@ function Navbar() {
                         All jobs
                     </div>
                 </a>
-                <a href="/">
+                <a href="/post">
                     <div className="first-item">
                         Post a job
                     </div>
@@ -55,7 +55,7 @@ function Navbar() {
                 </div>
                 <div className="links">
                     <Link to="/positions">All jobs</Link>
-                    <Link to="/">Post a job</Link>
+                    <Link to="/post">Post a job</Link>
                     <Link to="/faq">How it works</Link>
                 </div>
                 {menu && menu? 

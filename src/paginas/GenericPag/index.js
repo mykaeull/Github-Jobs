@@ -21,7 +21,7 @@ function GenericPag({desc = '', loc = '', fullTime = false, setDesc, setLoc, set
         getData()
     }, [click])
 
-    console.log(dataLocation)
+    //console.log(dataLocation)
 
     useEffect(() => {
         console.log('==================')
@@ -31,7 +31,7 @@ function GenericPag({desc = '', loc = '', fullTime = false, setDesc, setLoc, set
     }, [dataLocation])
 
     return (
-        <div className="container-jobs">
+        <div className="container-jobs-generic">
             <HeaderJobs loc={loc} desc={desc} fullTime={fullTime} setDesc={setDesc} setLoc={setLoc} setFullTime={setFullTime} click={click} setClick={setClick} />
             {dataLocation.length !== 0 ? 
             (

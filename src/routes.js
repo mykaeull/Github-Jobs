@@ -1,9 +1,11 @@
 import React from "react"
-import { Route, Switch } from "react-router-dom"
+import { Route, Switch, Redirect } from "react-router-dom"
 
 //pags
 import Home from "./paginas/Home"
 import Alljobs from "./paginas/Alljobs"
+import DescPag from "./paginas/DescPag"
+import HowWorks from "./paginas/HowWorks"
 
 function Routes() {
 
@@ -11,6 +13,9 @@ function Routes() {
         <Switch>
             <Route component={Home} path="/" exact />
             <Route component={Alljobs} path="/positions" exact />
+            <Route component={DescPag} path="/post/:id" exact />
+            <Route component={HowWorks} path="/faq" exact />
+            <Redirect to="/" from="*" />
         </Switch>
     )
 }

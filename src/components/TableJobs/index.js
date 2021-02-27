@@ -9,31 +9,34 @@ function TableJobs({ dataLocation, dataLocationLength }) {
     return (
         <div className="container-table">
             <div className="container-middle">
-                {dataLocationLength > 10 ?
-                <span>Showing 1 - 10 of {dataLocationLength} jobs</span>
+                {dataLocationLength > 50 ?
+                <span>Showing 1 - 50 of {dataLocationLength} jobs</span>
                 :
                 <span>Showing {dataLocationLength}</span>
                 }
                 <div className="content-elements">
                     <div className="left-elements">
-                        {dataLocation.slice(0, 9).map((e, i) => (
+                        {dataLocation.map((element) => (
                         <div className="item-table">
-                            <Link to="/positions" >
-                                <h3>{dataLocation[i].title}</h3>
+                            <Link to={`/post/${element.id}`} >
+                                <h3>{element.title}</h3>
                             </Link>
-                            <span>{dataLocation[i].company}</span>
+                            <span>{element.company}</span>
                             <div className="time">
-                                Time: <span> {dataLocation[i].type}</span>
+                                Time: <span> {element.type}</span>
                             </div>
                             <div className="location">
-                                <span>Location: {dataLocation[i].location}</span>
+                                <span>Location: {element.location}</span>
+                            </div>
+                            <div className="created-at">
+                                <span>{element.created_at}</span>
                             </div>
                         </div>
                         ))}
                     </div>
                 </div>
             </div>
-        </div>
+        </div> 
     )
 }
 

@@ -31,7 +31,9 @@
 }
 .container-table .container-middle .content-elements .left-elements {
     width: 100%;
-    transition: 0.3s; 
+    max-height: 1060px;
+    overflow: auto;
+    transition: 0.3s;
 }
 .container-table .container-middle .content-elements .left-elements .item-table {
     width: 100%;
@@ -39,6 +41,7 @@
     display: flex;
     flex-direction: column;
     transition: 0.3s; 
+    position: relative;
 }
 .container-table .container-middle .content-elements .left-elements .item-table:hover {
     background-color: #FFFAFA;
@@ -70,14 +73,28 @@
     color: #363636;
     margin-bottom: 5px;
 }
-.container-table .container-middle .content-elements .left-elements .item-table .time> span {
+.container-table .container-middle .content-elements .left-elements .item-table .time > span {
     font-size: 14px;
     color: #32CD32;
     font-weight: bold;
 }
 .container-table .container-middle .content-elements .left-elements .item-table .location {
-    margin-bottom: 5px;
+    margin-bottom: 15px;
 }
 .container-table .container-middle .content-elements .left-elements .item-table .location > span {
     font-size: 14px;
+}
+.container-table .container-middle .content-elements .left-elements .item-table .created-at {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+.container-table .container-middle .content-elements .left-elements .item-table .created-at > span {
+    font-size: 10px;
+    color: #808080;
+}
+@media (max-width: 500px) {
+    .container-table .container-middle .content-elements .left-elements .item-table .created-at > span {
+        font-size: 8px;
+    }
 }
