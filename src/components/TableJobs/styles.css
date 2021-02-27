@@ -6,11 +6,27 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+}
+.container-table .btn {
+    display: flex;
+    background-color: #24292e;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    width: 150px;
+    height: 40px;
+    border-radius: 16px;
+    cursor: pointer;
+}
+.container-table .btn > h4 {
+    color: #FFFFFF;
+    margin: 0;
 }
 .container-table .container-middle {
     width: 64vw;
     margin-top: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
     display: flex;
     flex-direction: column;
 }

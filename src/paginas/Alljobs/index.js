@@ -13,11 +13,12 @@ function Alljobs() {
     const [fullTime, setFullTime] = useState(false)
     const [click, setClick] = useState(false)
     const [loading, setLoading] = useState(false)
+    const [page, setPage] = useState(1)
 
     useEffect(() => {
         setLoading(true)
         const getData = async () => {
-            const response = await GetPage(desc, loc, fullTime)
+            const response = await GetPage(desc, loc, fullTime, page)
             setDataLocation(response)
             setLoading(false)
         }
@@ -45,7 +46,7 @@ function Alljobs() {
             <HeaderJobs loc={loc} desc={desc} fullTime={fullTime} setDesc={setDesc} setLoc={setLoc} setFullTime={setFullTime} click={click} setClick={setClick} />
             {dataLocation.length !== 0 ? 
             (
-                <TableJobs dataLocation={dataLocation} dataLocationLength={dataLocationLength} />
+                <TableJobs click={click} setClick={setClick} page={page} setPage={setPage} dataLocation={dataLocation} dataLocationLength={dataLocationLength} />
             )
             :
             loading ?

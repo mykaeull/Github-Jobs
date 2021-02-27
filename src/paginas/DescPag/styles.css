@@ -19,8 +19,7 @@
 .container-desc .container-middle .title {
     color: #363636;
     font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 10px; 
+    font-weight: bold; 
 }
 .container-desc .container-middle .time{
     color: #32CD32;
@@ -62,9 +61,12 @@
     margin-top: 10px;
     font-size: 18px;
     font-weight: bold;
+    margin-bottom: 20px;
 }
 .container-desc .container-middle .content-elements .right-elements .how-to-apply {
     font-size: 12px;
+    text-align: center;
+    margin-top: 10px;
     width: 250px;
 }
 @media (max-width: 1300px) {
