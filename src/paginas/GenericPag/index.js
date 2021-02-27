@@ -4,13 +4,10 @@ import HeaderJobs from "../../components/HeaderJobs"
 import TableJobs from "../../components/TableJobs"
 import { GetPage } from "../../utils"
 
-function Alljobs() {
+function GenericPag({desc = '', loc = '', fullTime = false, setDesc, setLoc, setFullTime}) {
     
     const [dataLocation, setDataLocation] = useState([]);
     const [dataLocationLength, setDataLocationLength] = useState(null)
-    const [desc, setDesc] = useState('')
-    const [loc, setLoc] = useState('')
-    const [fullTime, setFullTime] = useState(false)
     const [click, setClick] = useState(false)
     const [loading, setLoading] = useState(false)
 
@@ -24,21 +21,14 @@ function Alljobs() {
         getData()
     }, [click])
 
+    console.log(dataLocation)
+
     useEffect(() => {
         console.log('==================')
         console.log(dataLocation)
         console.log('==================')
         setDataLocationLength(dataLocation.length)
-        //dataLocation.length == 0 ? setTeste(true) : setTeste(false)
-        console.log("AQUII");
-        //console.log(teste);
     }, [dataLocation])
-
-    /*useEffect(() => {
-        
-        setDataLocationLength(dataLocation.length)
-        //setTeste(!teste)
-    }, [click])*/
 
     return (
         <div className="container-jobs">
@@ -57,4 +47,4 @@ function Alljobs() {
     )
 }
 
-export default Alljobs
+export default GenericPag

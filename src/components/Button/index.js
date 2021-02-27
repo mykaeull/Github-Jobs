@@ -2,7 +2,7 @@ import React from "react"
 import './styles.css'
 import { FiSearch } from "react-icons/fi"
 
-function Button({...rest}) {
+function Button({link, ...rest}) {
 
     return (
         <button className="search-btn" {...rest}>

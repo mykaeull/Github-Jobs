@@ -5,7 +5,7 @@ import Button from "../../components/Button"
 import { MdDescription } from "react-icons/md"
 import { GiEarthAmerica } from "react-icons/gi"
 import { AiOutlineRight } from "react-icons/ai"
-import Alljobs from "../Alljobs"
+import GenericPag from "../GenericPag"
 
 function Home() {
 
@@ -17,7 +17,7 @@ function Home() {
     return (
         <div>
             {atualizar && atualizar? 
-            <Alljobs desc={descripton} loc={location} fullTime={fullTime} />
+            <GenericPag desc={descripton} loc={location} fullTime={fullTime} setDesc={setDescripton} setLoc={setLocation} setFullTime={setFullTime} />
             :
             <div className="container-home">
                 <div className="left-elements">
@@ -41,7 +41,7 @@ function Home() {
                         }} />
                     </div>
                     <Button onClick={(e) => {
-                        e.preventDefault();
+                        //e.preventDefault();
                         setAtualizar(true);
                     }} />
                     <div className="check-content" >
@@ -55,23 +55,38 @@ function Home() {
                 <div className="right-elements">
                     <h1>Hot Searchs</h1> 
                     <div className="hot-content">
-                        <div className="hot-element">
+                        <div className="hot-element" onClick={(e) => {
+                            setDescripton('php')
+                            setAtualizar(true)
+                        }}>
                             <span>PHP</span>
                             <AiOutlineRight size={24} />
                         </div>
-                        <div className="hot-element">
+                        <div className="hot-element" onClick={(e) => {
+                            setDescripton('javascript')
+                            setAtualizar(true)
+                        }}>
                             <span>JavaScript</span>
                             <AiOutlineRight size={24} />
                         </div>
-                        <div className="hot-element">
+                        <div className="hot-element" onClick={(e) => {
+                            setDescripton('python')
+                            setAtualizar(true)
+                        }}>
                             <span>Python</span>
                             <AiOutlineRight size={24} />
                         </div>
-                        <div className="hot-element">
+                        <div className="hot-element" onClick={(e) => {
+                            setLocation('newyork')
+                            setAtualizar(true)
+                        }}>
                             <span>New York City</span>
                             <AiOutlineRight size={24} />
                         </div>
-                        <div className="hot-element">
+                        <div className="hot-element" onClick={(e) => {
+                            setLocation('sanfrancisco')
+                            setAtualizar(true)
+                        }}>
                             <span>San Francisco</span>
                             <AiOutlineRight size={24} />
                         </div>
