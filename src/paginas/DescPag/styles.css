@@ -19,7 +19,9 @@
 .container-desc .container-middle .title {
     color: #363636;
     font-size: 24px;
-    font-weight: bold; 
+    font-weight: bold;
+    margin-bottom: 5px;
+    text-align: center; 
 }
 .container-desc .container-middle .time{
     color: #32CD32;
