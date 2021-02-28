@@ -11,6 +11,7 @@ function GenericPag({desc = '', loc = '', fullTime = false, setDesc, setLoc, set
     const [dataLocation, setDataLocation] = useState([]);
     const [dataLocationLength, setDataLocationLength] = useState(null)
     const [page, setPage] = useState(1)
+    const [firstTime, setFirstTime] = useState(true)
 
     async function getData(description, location, time, pag) {
         setLoading(true)
@@ -20,8 +21,11 @@ function GenericPag({desc = '', loc = '', fullTime = false, setDesc, setLoc, set
     }
 
     useEffect(() => {
-        getData(desc, loc, fullTime, 1)
-    }, [])
+        if (firstTime) {
+            getData(desc, loc, fullTime, 1)
+            setFirstTime(false)
+        }
+    }, [desc, loc, fullTime, firstTime])
 
     //console.log(dataLocation)
 
