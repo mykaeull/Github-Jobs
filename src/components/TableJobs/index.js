@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react"
+import React from "react"
 import { Link } from "react-router-dom"
 import './styles.css'
 
-function TableJobs({ dataLocation, dataLocationLength, page, setPage, clickShowMore, setClickShowMore }) {
+function TableJobs({desc, loc, time, getData, dataLocation, dataLocationLength, page, setPage }) {
 
     return (
         <div className="container-table">
@@ -10,8 +10,8 @@ function TableJobs({ dataLocation, dataLocationLength, page, setPage, clickShowM
                 <span>Showing {dataLocationLength} - page {page}</span>
                 <div className="content-elements">
                     <div className="left-elements">
-                        {dataLocation.map((element) => (
-                        <div className="item-table">
+                        {dataLocation.map((element, index) => (
+                        <div key={index} className="item-table">
                             <Link to={`/post/${element.id}`} >
                                 <h3>{element.title}</h3>
                             </Link>
@@ -31,8 +31,9 @@ function TableJobs({ dataLocation, dataLocationLength, page, setPage, clickShowM
                 </div>
             </div>
             <div className="btn" onClick={(e) => {
+                //setPage(page+1);
+                getData(desc, loc, time, page+1)
                 setPage(page+1);
-                setClickShowMore(!clickShowMore)
             }}>
                 <h4>show more</h4>
             </div>

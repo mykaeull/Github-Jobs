@@ -6,32 +6,22 @@ import { GetPage } from "../../utils"
 
 function GenericPag({desc = '', loc = '', fullTime = false, setDesc, setLoc, setFullTime}) {
     
+    //const [dataLocation, setDataLocation] = useState([]);
+    const [loading, setLoading] = useState(false)
     const [dataLocation, setDataLocation] = useState([]);
     const [dataLocationLength, setDataLocationLength] = useState(null)
-    const [clickSearch, setClickSearch] = useState(false)
-    const [clickShowMore, setClickShowMore] = useState(false)
-    const [loading, setLoading] = useState(false)
     const [page, setPage] = useState(1)
 
-    useEffect(() => {
+    async function getData(description, location, time, pag) {
         setLoading(true)
-        const getData = async () => {
-            const response = await GetPage(desc, loc, fullTime, page)
-            setDataLocation(response)
-            setLoading(false)
-        }
-        getData()
-    }, [clickSearch])
+        const response = await GetPage(description, location, time, pag)
+        setDataLocation(response)
+        setLoading(false)
+    }
 
     useEffect(() => {
-        setLoading(true)
-        const getData = async () => {
-            const response = await GetPage(desc, loc, fullTime, page)
-            setDataLocation(response)
-            setLoading(false)
-        }
-        getData()
-    }, [clickShowMore])
+        getData(desc, loc, fullTime, 1)
+    }, [])
 
     //console.log(dataLocation)
 
@@ -44,10 +34,10 @@ function GenericPag({desc = '', loc = '', fullTime = false, setDesc, setLoc, set
 
     return (
         <div className="container-jobs-generic">
-            <HeaderJobs setPage={setPage} loc={loc} desc={desc} fullTime={fullTime} setDesc={setDesc} setLoc={setLoc} setFullTime={setFullTime} clickSearch={clickSearch} setClickSearch={setClickSearch} />
+            <HeaderJobs getData={getData} setPage={setPage} loc={loc} desc={desc} fullTime={fullTime} setDesc={setDesc} setLoc={setLoc} setFullTime={setFullTime} />
             {dataLocation.length !== 0 ? 
             (
-                <TableJobs clickShowMore={clickShowMore} setClickShowMore={setClickShowMore} page={page} setPage={setPage} dataLocation={dataLocation} dataLocationLength={dataLocationLength} />
+                <TableJobs desc={desc} loc={loc} time={fullTime} getData={getData} page={page} setPage={setPage} dataLocation={dataLocation} dataLocationLength={dataLocationLength} />
             )
             :
             loading ?

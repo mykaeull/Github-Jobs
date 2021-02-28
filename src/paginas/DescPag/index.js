@@ -16,7 +16,7 @@ function DescPag() {
             setDataLocation(response)
         }
         getData()
-    }, [])
+    }, [id])
 
     useEffect(() => {
         console.log('==================')
@@ -41,7 +41,7 @@ function DescPag() {
                     </div>
                     <div className="right-elements">
                         <span className="company">{dataLocation.company}</span>
-                        <img src={dataLocation.company_logo} style={{margin: "0"}} />
+                        <img alt="logo" src={dataLocation.company_logo} style={{margin: "0"}} />
                         <span className="how-to-apply"> <ReactMarkdown source={dataLocation.how_to_apply} allowDangerousHtml={true} linkTarget="_blank" /> </span>
                     </div>
                 </div>

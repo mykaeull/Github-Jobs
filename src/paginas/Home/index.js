@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useState } from "react"
 import './styles.css'
 import Input from "../../components/Input"
 import Button from "../../components/Button"
@@ -10,14 +10,23 @@ import GenericPag from "../GenericPag"
 function Home() {
 
     const [atualizar, setAtualizar] = useState(false)
-    const [descripton, setDescripton] = useState('')
+    const [description, setDescription] = useState('')
     const [location, setLocation] = useState('')
     const [fullTime, setFullTime] = useState(false)
+    //const [loading, setLoading] = useState(false)
+    //const [dataLocation, setDataLocation] = useState([]);
+
+    /*async function getDataHome(description, location, time, pag=1) {
+        setLoading(true)
+        const response = await GetPage(description, location, time, pag)
+        setDataLocation(response)
+        setLoading(false)
+    }*/
 
     return (
         <div>
             {atualizar && atualizar? 
-            <GenericPag desc={descripton} loc={location} fullTime={fullTime} setDesc={setDescripton} setLoc={setLocation} setFullTime={setFullTime} />
+            <GenericPag desc={description} loc={location} fullTime={fullTime} setDesc={setDescription} setLoc={setLocation} setFullTime={setFullTime} />
             :
             <div className="container-home">
                 <div className="left-elements">
@@ -27,8 +36,8 @@ function Home() {
                     </div>
                     <div className="search-input">
                         <Input placeholder="Filter by title, benefits, companies, expertise" onChange={(e) => {
-                            setDescripton(e.target.value);
-                            console.log(descripton);
+                            setDescription(e.target.value);
+                           
                         }} />
                     </div>
                     <div className="icon-text">
@@ -41,13 +50,12 @@ function Home() {
                         }} />
                     </div>
                     <Button onClick={(e) => {
-                        //e.preventDefault();
+                        //getDataHome(description, location, fullTime, 1)
                         setAtualizar(true);
                     }} />
                     <div className="check-content" >
                         <input type="checkbox" onClick={(e) => {
                             setFullTime(!fullTime);
-                            console.log(fullTime);
                         }} />
                         <span>Full Time Only</span>
                     </div>
@@ -56,21 +64,21 @@ function Home() {
                     <h1>Hot Searchs</h1> 
                     <div className="hot-content">
                         <div className="hot-element" onClick={(e) => {
-                            setDescripton('php')
+                            setDescription('php')
                             setAtualizar(true)
                         }}>
                             <span>PHP</span>
                             <AiOutlineRight size={24} />
                         </div>
                         <div className="hot-element" onClick={(e) => {
-                            setDescripton('javascript')
+                            setDescription('javascript')
                             setAtualizar(true)
                         }}>
                             <span>JavaScript</span>
                             <AiOutlineRight size={24} />
                         </div>
                         <div className="hot-element" onClick={(e) => {
-                            setDescripton('python')
+                            setDescription('python')
                             setAtualizar(true)
                         }}>
                             <span>Python</span>
