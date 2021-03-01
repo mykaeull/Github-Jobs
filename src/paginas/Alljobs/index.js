@@ -17,12 +17,6 @@ function Alljobs() {
 
     const { pag, description, type, location } = useParams()
 
-    console.log('aquii')
-    console.log(pag)
-    console.log(description)
-    console.log(type)
-    console.log(location)
-
     useEffect(() => {
         setLoading(true)
         const GetData = async () => {
@@ -32,9 +26,6 @@ function Alljobs() {
         }
         GetData()
     }, [pag, description, type, location])
-
-    console.log('dale')
-    console.log(dataLocation)
 
     /*async function getData(description, location, time, pag = 1) {
         setLoading(true)
@@ -48,20 +39,15 @@ function Alljobs() {
     }, [])*/
 
     useEffect(() => {
-        console.log('==================')
-        console.log(dataLocation)
-        console.log('==================')
+        //console.log('==================')
+        //console.log(dataLocation)
+        //console.log('==================')
         setDataLocationLength(dataLocation.length)
         //dataLocation.length == 0 ? setTeste(true) : setTeste(false)
         //console.log("AQUII");
         //console.log(teste);
     }, [dataLocation])
 
-    /*useEffect(() => {
-        
-        setDataLocationLength(dataLocation.length)
-        //setTeste(!teste)
-    }, [ClickSearch])*/
 
     return (
         <div className="container-jobs">

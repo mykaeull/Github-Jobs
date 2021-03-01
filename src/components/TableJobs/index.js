@@ -30,7 +30,7 @@ function TableJobs({desc, loc, time, dataLocation, dataLocationLength, page, set
                     </div>
                 </div>
             </div>
-            <Link to={`/positions/page=${page+1}/description=${desc == '' ? "undefined" : desc}/full_time=${time}/location=${loc == '' ? "undefined" : loc}`} className="btn" onClick={(e) => {
+            <Link to={`/positions/page=${page+1}/description=${desc === '' ? "undefined" : desc}/full_time=${time}/location=${loc === '' ? "undefined" : loc}`} className="btn" onClick={(e) => {
                 setPage(page+1)
             }} >
                 <h4>show more</h4>

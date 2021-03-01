@@ -11,16 +11,6 @@ function Home() {
     const [description, setDescription] = useState('')
     const [location, setLocation] = useState('')
     const [fullTime, setFullTime] = useState(false)
-    const [page, SetPage] = useState(1)
-    //const [loading, setLoading] = useState(false)
-    //const [dataLocation, setDataLocation] = useState([]);
-
-    /*async function getDataHome(description, location, time, pag=1) {
-        setLoading(true)
-        const response = await GetPage(description, location, time, pag)
-        setDataLocation(response)
-        setLoading(false)
-    }*/
 
     return (
         <div>
@@ -44,7 +34,7 @@ function Home() {
                             setLocation(e.target.value);
                         }} />
                     </div>
-                    <Button link={`positions/page=${page}/description=${description == '' ? "undefined" : description}/full_time=${fullTime}/location=${location == '' ? "undefined" : location}`} />
+                    <Button link={`positions/page=1/description=${description === '' ? "undefined" : description}/full_time=${fullTime}/location=${location === '' ? "undefined" : location}`} />
                     <div className="check-content" >
                         <input type="checkbox" onClick={(e) => {
                             setFullTime(!fullTime);

@@ -1,10 +1,9 @@
 import api from "../servidor"
 
 export async function GetPage(pag, desc, type, loc) {
-    const response = await api.get(`positions.json?page=${pag}&description=${desc == "undefined" ? '' : desc}&full_time=${type}&location=${loc == "undefined" ? '' : loc}`)
+    const response = await api.get(`positions.json?page=${pag}&description=${desc === "undefined" ? '' : desc}&full_time=${type}&location=${loc === "undefined" ? '' : loc}`)
         .then(res => {
             console.log("SUCESS!")
-            console.log(res.data)
             return res.data
         })
         .catch(err => {
@@ -18,7 +17,6 @@ export async function GetById(id) {
     const response = await api.get(`positions/${id}.json`)
         .then(res => {
             console.log("SUCESS!")
-            console.log(res.data)
             return res.data
         })
         .catch(err => {

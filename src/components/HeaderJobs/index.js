@@ -28,7 +28,7 @@ function HeaderJobs({fullTime = false, setDesc, setLoc, setFullTime, loc, desc})
                         setLoc(e.target.value);
                     }} />
                 </div>
-                <Button link={`/positions/page=1/description=${desc == '' ? "undefined" : desc}/full_time=${fullTime}/location=${loc == '' ? "undefined" : loc}`} />
+                <Button link={`/positions/page=1/description=${desc === '' ? "undefined" : desc}/full_time=${fullTime}/location=${loc === '' ? "undefined" : loc}`} />
                 {/*`positions/page=1/description=${desc == '' ? "undefined" : desc}/full_time=${fullTime}/location=${loc == '' ? "undefined" : loc}`*/}
                 <div className="check-content" >
                     <input type="checkbox" onClick={(e) => {

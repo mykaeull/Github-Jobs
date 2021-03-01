@@ -18,11 +18,11 @@ function DescPag() {
         getData()
     }, [id])
 
-    useEffect(() => {
+    /*useEffect(() => {
         console.log('==================')
         console.log(dataLocation)
         console.log('==================')
-    }, [dataLocation])
+    }, [dataLocation])*/
 
     return (
         <div className="container-desc">
@@ -52,11 +52,5 @@ function DescPag() {
         </div>
     )
 }
-
-/*{dataLocation.length !== 0 ?
-                <ReactMarkdown source={dataLocation[0].description} allowDangerousHtml={true} linkTarget="_blank" />
-                :
-                <h1>Loading...</h1>
-                }*/
 
 export default DescPag
