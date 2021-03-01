@@ -80,6 +80,7 @@
 }
 .container-home .right-elements .hot-content .hot-element {
     width: 300px;
+    text-decoration: none;
     height: 40px;
     color: #363636;
     display: flex;

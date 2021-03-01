@@ -1,8 +1,7 @@
 import api from "../servidor"
 
-export async function GetPage(desc= '', loc= '', fullTime= false, pag = 1) {
-    let time = fullTime? '&full_time=true' : ''
-    const response = await api.get(`positions.json?page=${pag}&description=${desc}${time}&location=${loc}`)
+export async function GetPage(pag, desc, type, loc) {
+    const response = await api.get(`positions.json?page=${pag}&description=${desc == "undefined" ? '' : desc}&full_time=${type}&location=${loc == "undefined" ? '' : loc}`)
         .then(res => {
             console.log("SUCESS!")
             console.log(res.data)

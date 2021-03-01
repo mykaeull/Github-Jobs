@@ -2,7 +2,7 @@ import React from "react"
 import { Link } from "react-router-dom"
 import './styles.css'
 
-function TableJobs({desc, loc, time, getData, dataLocation, dataLocationLength, page, setPage }) {
+function TableJobs({desc, loc, time, dataLocation, dataLocationLength, page, setPage }) {
 
     return (
         <div className="container-table">
@@ -30,13 +30,11 @@ function TableJobs({desc, loc, time, getData, dataLocation, dataLocationLength, 
                     </div>
                 </div>
             </div>
-            <div className="btn" onClick={(e) => {
-                //setPage(page+1);
-                getData(desc, loc, time, page+1)
-                setPage(page+1);
-            }}>
+            <Link to={`/positions/page=${page+1}/description=${desc == '' ? "undefined" : desc}/full_time=${time}/location=${loc == '' ? "undefined" : loc}`} className="btn" onClick={(e) => {
+                setPage(page+1)
+            }} >
                 <h4>show more</h4>
-            </div>
+            </Link>
         </div> 
     )
 }

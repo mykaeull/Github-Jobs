@@ -5,14 +5,13 @@ import Button from "../../components/Button"
 import { MdDescription } from "react-icons/md"
 import { GiEarthAmerica } from "react-icons/gi"
 import { AiOutlineRight } from "react-icons/ai"
-import GenericPag from "../GenericPag"
 
 function Home() {
 
-    const [atualizar, setAtualizar] = useState(false)
     const [description, setDescription] = useState('')
     const [location, setLocation] = useState('')
     const [fullTime, setFullTime] = useState(false)
+    const [page, SetPage] = useState(1)
     //const [loading, setLoading] = useState(false)
     //const [dataLocation, setDataLocation] = useState([]);
 
@@ -25,9 +24,6 @@ function Home() {
 
     return (
         <div>
-            {atualizar && atualizar? 
-            <GenericPag desc={description} loc={location} fullTime={fullTime} setDesc={setDescription} setLoc={setLocation} setFullTime={setFullTime} />
-            :
             <div className="container-home">
                 <div className="left-elements">
                     <div className="icon-text">
@@ -37,7 +33,6 @@ function Home() {
                     <div className="search-input">
                         <Input placeholder="Filter by title, benefits, companies, expertise" onChange={(e) => {
                             setDescription(e.target.value);
-                           
                         }} />
                     </div>
                     <div className="icon-text">
@@ -49,10 +44,7 @@ function Home() {
                             setLocation(e.target.value);
                         }} />
                     </div>
-                    <Button onClick={(e) => {
-                        //getDataHome(description, location, fullTime, 1)
-                        setAtualizar(true);
-                    }} />
+                    <Button link={`positions/page=${page}/description=${description == '' ? "undefined" : description}/full_time=${fullTime}/location=${location == '' ? "undefined" : location}`} />
                     <div className="check-content" >
                         <input type="checkbox" onClick={(e) => {
                             setFullTime(!fullTime);
@@ -63,45 +55,29 @@ function Home() {
                 <div className="right-elements">
                     <h1>Hot Searchs</h1> 
                     <div className="hot-content">
-                        <div className="hot-element" onClick={(e) => {
-                            setDescription('php')
-                            setAtualizar(true)
-                        }}>
+                        <a className="hot-element" href={`positions/page=1/description=php/full_time=false/location=undefined`} >
                             <span>PHP</span>
                             <AiOutlineRight size={24} />
-                        </div>
-                        <div className="hot-element" onClick={(e) => {
-                            setDescription('javascript')
-                            setAtualizar(true)
-                        }}>
+                        </a>
+                        <a className="hot-element" href={`positions/page=1/description=javascript/full_time=false/location=undefined`} >
                             <span>JavaScript</span>
                             <AiOutlineRight size={24} />
-                        </div>
-                        <div className="hot-element" onClick={(e) => {
-                            setDescription('python')
-                            setAtualizar(true)
-                        }}>
+                        </a>
+                        <a className="hot-element" href={`positions/page=1/description=python/full_time=false/location=undefined`} >
                             <span>Python</span>
                             <AiOutlineRight size={24} />
-                        </div>
-                        <div className="hot-element" onClick={(e) => {
-                            setLocation('newyork')
-                            setAtualizar(true)
-                        }}>
+                        </a>
+                        <a className="hot-element" href={`positions/page=1/description=undefined/full_time=false/location=newyorkcity`} >
                             <span>New York City</span>
                             <AiOutlineRight size={24} />
-                        </div>
-                        <div className="hot-element" onClick={(e) => {
-                            setLocation('sanfrancisco')
-                            setAtualizar(true)
-                        }}>
+                        </a>
+                        <a className="hot-element" href={`positions/page=1/description=undefined/full_time=false/location=sanfrancisco`} >
                             <span>San Francisco</span>
                             <AiOutlineRight size={24} />
-                        </div>
+                        </a>
                     </div>
                 </div>
             </div>
-        }
         </div>
     )
 }

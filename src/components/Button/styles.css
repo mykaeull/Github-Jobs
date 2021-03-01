@@ -1,5 +1,6 @@
 .search-btn {
     width: 100px;
+    text-decoration: none;
     display: flex;
     align-items: center;
     justify-content: center;

@@ -3,6 +3,7 @@ import './styles.css'
 import HeaderJobs from "../../components/HeaderJobs"
 import TableJobs from "../../components/TableJobs"
 import { GetPage } from "../../utils"
+import { useParams } from "react-router-dom"
 
 function Alljobs() {
     
@@ -14,7 +15,28 @@ function Alljobs() {
     const [loading, setLoading] = useState(false)
     const [page, setPage] = useState(1)
 
-    async function getData(description, location, time, pag = 1) {
+    const { pag, description, type, location } = useParams()
+
+    console.log('aquii')
+    console.log(pag)
+    console.log(description)
+    console.log(type)
+    console.log(location)
+
+    useEffect(() => {
+        setLoading(true)
+        const GetData = async () => {
+            const response = await GetPage(pag, description, type, location)
+            setDataLocation(response)
+            setLoading(false)
+        }
+        GetData()
+    }, [pag, description, type, location])
+
+    console.log('dale')
+    console.log(dataLocation)
+
+    /*async function getData(description, location, time, pag = 1) {
         setLoading(true)
         const response = await GetPage(description, location, time, pag)
         setDataLocation(response)
@@ -23,7 +45,7 @@ function Alljobs() {
 
     useEffect(() => {
         getData('', '', false, 1)
-    }, [])
+    }, [])*/
 
     useEffect(() => {
         console.log('==================')
@@ -43,10 +65,10 @@ function Alljobs() {
 
     return (
         <div className="container-jobs">
-            <HeaderJobs getData={getData} setPage={setPage} loc={loc} desc={desc} fullTime={fullTime} setDesc={setDesc} setLoc={setLoc} setFullTime={setFullTime} />
+            <HeaderJobs loc={loc} desc={desc} fullTime={fullTime} setDesc={setDesc} setLoc={setLoc} setFullTime={setFullTime} />
             {dataLocation.length !== 0 ? 
             (
-                <TableJobs desc={desc} loc={loc} time={fullTime} getData={getData} page={page} setPage={setPage} dataLocation={dataLocation} dataLocationLength={dataLocationLength} />
+                <TableJobs desc={desc} loc={loc} time={fullTime} page={page} setPage={setPage} dataLocation={dataLocation} dataLocationLength={dataLocationLength} />
             )
             :
             loading ?

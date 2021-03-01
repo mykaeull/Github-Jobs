@@ -25,7 +25,7 @@ function Navbar() {
             <></>
             :
             <div className="menu">
-                <a href="/positions">
+                <a href={`positions/page=1/description=undefined/full_time=false/location=undefined`}>
                     <div className="first-item">
                         All jobs
                     </div>
@@ -54,7 +54,7 @@ function Navbar() {
                     </a>
                 </div>
                 <div className="links">
-                    <a href="/positions">All jobs</a>
+                    <a href={`positions/page=1/description=undefined/full_time=false/location=undefined`}>All jobs</a>
                     <Link to="/post">Post a job</Link>
                     <Link to="/faq">How it works</Link>
                 </div>
